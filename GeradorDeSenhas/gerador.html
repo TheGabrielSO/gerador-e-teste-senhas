@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?";
+        function gerarSenha(qtdCaracter){
+            const array = new Uint32Array(qtdCaracter);
+            window.crypto.getRandomValues(array);
+
+            let senha = "";
+            for(let i = 0; i <= array.length; i++){
+                const indice = array[i] % caracteres.length;
+                senha += caracteres[indice];
+            }
+            return senha;
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="corpo">
+        <div class="form">
+            <form id="qtdCaracter">
+                <label for="numberCaracter">Quantos caracteres deseja em sua senha?</label>
+                <input type="number" name="numberCaracter" placeholder="Número de caracteres">
+                <button type="button" onclick="document.getElementById('senhaGerada').textContent = gerarSenha(this.form.numberCaracter.value)", onclick="alert("SEnha criada com sucesso")">Criar senha</button>
+            </form>
+        </div>
+        <div class="resultSenha">
+            <p id="senhaGerada"> </p>
+        </div>
+    </div>
+</body>
+</html>
