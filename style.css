@@ -1,0 +1,417 @@
+/* Importando uma fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* Reset básico e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: #090d16;
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(129, 140, 248, 0.08), transparent 25%);
+    color: #f8fafc;
+    min-height: 100vh;
+}
+
+/* Container Principal */
+.corpo {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Barra de Navegação Superior */
+.topBar {
+    display: flex;
+    justify-content: flex-end; /* Alinha os links à direita */
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+/* Estilização da Seção de Introdução (Intro) na Main */
+
+.intro {
+    text-align: center;
+    max-width: 750px; /* Aumenta um pouco a largura para acomodar melhor o texto */
+    margin: 40px auto 10px;
+    padding: 0 20px;
+}
+
+.intro h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f8fafc;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #f8fafc 30%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro h2 {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #94a3b8;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+    .intro h1 {
+        font-size: 2rem;
+    }
+    
+    .intro h2 {
+        font-size: 0.95rem;
+    }
+}
+.pageButton {
+    display: flex;
+    gap: 24px;
+}
+
+.pageButton a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+.pageButton a:hover {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+}
+
+/* Área de Introdução (Preparada para quando você adicionar textos) */
+.intro {
+    text-align: center;
+    max-width: 650px;
+    margin: 60px auto 20px;
+    padding: 0 20px;
+}
+
+/* Seção de Escolha de Ferramentas (Cards) */
+.chooseFunction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    margin: auto 0; /* Centraliza verticalmente na tela */
+}
+
+/* Estilo compartilhado para os cards de Gerador e Testador */
+.gerador, .testador {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    width: 300px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Faz o link ocupar todo o espaço do card para facilitar o clique */
+.gerador a, .testador a {
+    text-decoration: none;
+    color: #f8fafc;
+    font-size: 1.25rem;
+    font-weight: 700;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: -0.02em;
+}
+
+/* Efeitos ao passar o mouse (Hover) */
+.gerador:hover {
+    transform: translateY(-6px);
+    border-color: #38bdf8;
+    box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.3);
+    background: rgba(30, 41, 59, 0.8);
+}
+
+.gerador:hover a {
+    color: #38bdf8;
+}
+
+.testador:hover {
+    transform: translateY(-6px);
+    border-color: #818cf8;
+    box-shadow: 0 12px 30px -10px rgba(129, 140, 248, 0.3);
+    background: rgba(30, 41, 59, 0.8);
+}
+
+.testador:hover a {
+    color: #818cf8;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 650px) {
+    .topBar {
+        justify-content: center;
+    }
+    
+    .gerador, .testador {
+        width: 100%;
+        max-width: 340px;
+        height: 140px;
+    }
+}
+/* Ativa a transição suave nativa entre páginas HTML */
+@view-transition {
+    navigation: auto;
+}
+
+/* Personaliza a duração e o ritmo da animação de saída e entrada */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.35s;
+    animation-timing-function: ease-in-out;
+}
+/* Estilização específica para a página do Testador de Senhas */
+
+.form {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 480px;
+    margin: auto; /* Centraliza vertical e horizontalmente junto com o flex do corpo */
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form label {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: -4px;
+}
+
+.form input[type="text"] {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: #f8fafc;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form input[type="text"]:focus {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15);
+}
+
+/* Campo de resultado (readonly) com visual diferenciado */
+.form input#resultTest {
+    background: rgba(15, 23, 42, 0.9);
+    color: #38bdf8;
+    font-weight: 600;
+    text-align: center;
+    cursor: default;
+}
+
+.form button {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 8px;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.form button:hover {
+    background: linear-gradient(135deg, #4f46e5, #4338ca);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+.form button:active {
+    transform: translateY(0);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 520px) {
+    .form {
+        margin: 20px;
+        padding: 24px;
+        max-width: calc(100% - 40px);
+    }
+}
+/* Estilo para o link de voltar na página do Testador */
+.topBar a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.topBar a:hover {
+    color: #38bdf8;
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    transform: translateY(-2px);
+}
+/* Estilização específica para a página do Gerador de Senhas */
+
+.form form#qtdCaracter {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 480px;
+    margin: auto; /* Centraliza junto com o flex do corpo */
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form form#qtdCaracter label {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: -4px;
+}
+
+/* Estilo para o input number e para o input text de resultado */
+.form form#qtdCaracter input[type="number"],
+.form form#qtdCaracter input[type="text"] {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: #f8fafc;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+/* Remove as setinhas feias padrão do input number em alguns navegadores (opcional, deixa mais limpo) */
+.form form#qtdCaracter input[type="number"]::-webkit-inner-spin-button,
+.form form#qtdCaracter input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form form#qtdCaracter input[type="number"]:focus {
+    border-color: #38bdf8; /* Tom ciano combinando com o gerador da main */
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+/* Campo de resultado gerado (readonly) */
+.form form#qtdCaracter input#resultado {
+    background: rgba(15, 23, 42, 0.9);
+    color: #38bdf8;
+    font-weight: 600;
+    text-align: center;
+    cursor: default;
+}
+
+.form form#qtdCaracter button {
+    background: linear-gradient(135deg, #38bdf8, #0284c7);
+    color: #0f172a;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 8px;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+.form form#qtdCaracter button:hover {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(56, 189, 248, 0.4);
+}
+
+.form form#qtdCaracter button:active {
+    transform: translateY(0);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 520px) {
+    .form form#qtdCaracter {
+        margin: 20px;
+        padding: 24px;
+        max-width: calc(100% - 40px);
+    }
+}
+.form:has(#qtdCaracter) {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    padding: 0;
+    margin: auto;
+}
+.topBar > a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.topBar > a:hover {
+    color: #38bdf8;
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    transform: translateY(-2px);
+}

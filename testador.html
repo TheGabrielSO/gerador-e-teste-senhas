@@ -5,34 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
         function getInput(){
-            const senha = getElementById("inputSenha").value; 
+            const senha = document.getElementById("inputSenha").value; 
+            return senha;
         }
-        function testSenha(senha){
+        function testSenha(){
+            const senha = getInput();
             let pontuacao = 0;
             const charSpecial = '!@#$%^&*()_+-=[]{}|;:,.<>?';
-            for(const caractere of senha) {
-                caractere.push(letra);
-            }
-            if(senha.includes(charSpecial)){
+            if(charSpecial.split('').some(char => senha.includes(char))){ 
                 pontuacao++;
             }
-            if(senha.lenght >= 15){
+            if(senha.length >= 15){
                 pontuacao++;
             }
             if("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").some(letra => senha.includes(letra))){
                 pontuacao++;
             }
+            return pontuacao;
+        }
+        function resultPontuacao(){
+            const pontuacao = testSenha();
+            let powerSenha
+            if (pontuacao < 1){
+                powerSenha = "Sua senha é MUITO fraca!";
+                return powerSenha;
+            }
+            if (pontuacao == 1){
+                powerSenha = "Sua senha é fraca";
+                return powerSenha;
+            }
+            if (pontuacao == 2){
+                powerSenha = "Sua senha é razoável"
+                return powerSenha;
+            }
+            if (pontuacao == 3){
+                powerSenha = "Sua senha é forte, parabéns!"
+                return powerSenha;
+            }
+        }
+        function setOutput(){
+            document.getElementById("resultTest").value = resultPontuacao();
         }
     </script>
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <div class="corpo">
+        <div class="topBar">
+            <a href="main.html">Voltar</a>
+        </div>
         <div class="form">
-            <form></form>
+                <label for="inputSenha">Insira sua senha</label>
                 <input type="text" name="inputSenha" id="inputSenha" placeholder="Insira sua senha">
-                <button type="button" onclick="getInput()">Analisar senhas</button>
-            </form>
+                <button type="button" onclick="setOutput()">Analisar senhas</button>
+                <input type="text" name="resultTest" id="resultTest" readonly>
         </div>
     </div>
 </body>
